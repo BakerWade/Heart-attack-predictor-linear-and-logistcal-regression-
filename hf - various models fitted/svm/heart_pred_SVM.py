@@ -7,7 +7,7 @@ hartfail= pd.read_csv('heart_failure_clinical_records_dataset.csv')
 
 from sklearn.model_selection import train_test_split
 
-X= hartfail.drop(['DEATH_EVENT'],axis=1)
+X= hartfail.drop(['DEATH_EVENT','platelets','serum_sodium','time'],axis=1)
 y = hartfail['DEATH_EVENT']
 
 X_train,X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)

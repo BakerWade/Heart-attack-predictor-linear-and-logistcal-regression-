@@ -2,9 +2,12 @@ import numpy as np
 import pandas as pd
 
 hartfail= pd.read_csv('heart_failure_clinical_records_dataset.csv')
+hartfail2 = hartfail.drop(['platelets','serum_sodium','time'], axis=1)
 
-X = hartfail.drop(['DEATH_EVENT'], axis=1)
-y = hartfail['DEATH_EVENT']
+print(hartfail['platelets'].mean())
+
+X = hartfail2.drop(['DEATH_EVENT'], axis=1)
+y = hartfail2['DEATH_EVENT']
 
 from sklearn.model_selection import train_test_split
 
@@ -18,8 +21,8 @@ prediction = tree.predict(X_test)
 
 from sklearn.metrics import confusion_matrix, classification_report
 
-#print(classification_report(y_test,prediction))
-#print(confusion_matrix(y_test,prediction))
+print(classification_report(y_test,prediction))
+print(confusion_matrix(y_test,prediction))
 
 from sklearn.ensemble import RandomForestClassifier
 ran = RandomForestClassifier(n_estimators=1000)
@@ -29,3 +32,5 @@ pred = ran.predict(X_test)
 
 print(classification_report(y_test,pred))
 print(confusion_matrix(y_test,pred))
+
+

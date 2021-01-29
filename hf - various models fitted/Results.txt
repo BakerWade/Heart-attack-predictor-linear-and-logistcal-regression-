@@ -1,0 +1,16 @@
+I dropped 3 columns from this model:
+
+1)  Time: inconclusive data. No unit of measurement provided or no way to determine what the time period represents. 
+	Can be included with more data and understanding what this column represents
+
+2) serum_sodium: this data is mostly within the considered 'healthy' bracket of 135-145. The mean of the column is 136. 
+	So there is no reason to suspect that normal levels of sodium in this dataset has any relationship with the risk of heart attack. 
+	But getting more data might dispute this. src: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6224129/
+
+3) Platelets: Same as serum_sodium, the bulk of the data in this column falls well within 'healthy' bracket of 150k-450k. The mean = 263358.02926421404
+	src: https://www.hopkinsmedicine.org/health/conditions-and-diseases/what-are-platelets-and-why-are-they-important#:~:text=A%20normal%20platelet%20count%20ranges,150%2C000%20is%20known%20as%20thrombocytopenia.
+
+#In conclusion, after using 4 differnt models to try to create a decent enough model, I have concluded that both 'RandomForestClassifier' and 'Support Vector machine' are suited for this situation.(more data is needed to distinguish which is best) 
+To improve results, a neural net can be considered and more data is definiely required. 
+Or balancing the data to have a better distribution of 'DEATH_EVENTS', either by reducing the number of "0" or increasing the amount of "1", by creating  false data[recommended]
+#I would not trust using this model in real life, more testing and data is needed before formal use.
